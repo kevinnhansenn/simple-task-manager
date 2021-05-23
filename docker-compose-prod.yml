@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile.prod
     ports:
       - 8080:80
-    restart: unless-stopped
+    restart: always
     environment:
       - NODE_ENV=production
     volumes:
@@ -21,7 +21,7 @@ services:
       dockerfile: Dockerfile.prod
     ports:
       - 5000:5000
-    restart: unless-stopped
+    restart: always
     depends_on:
       - db_group
     environment:
@@ -39,7 +39,7 @@ services:
       dockerfile: Dockerfile.prod
     ports:
       - 5001:5001
-    restart: unless-stopped
+    restart: always
     depends_on:
       - db_task
     environment:
@@ -57,7 +57,7 @@ services:
       dockerfile: Dockerfile.prod
     ports:
       - 5002:5002
-    restart: unless-stopped
+    restart: always
     environment:
       - NODE_ENV=production
       - FORCE_COLOR=1

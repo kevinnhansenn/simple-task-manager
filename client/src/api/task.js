@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5001";
+const BASE_URL = `${window.location.origin.replace(":8080", "")}:5001`;
 
 export const __fetchTasks = () => {
   return axios.get(BASE_URL);

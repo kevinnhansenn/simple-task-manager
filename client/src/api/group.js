@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = `${window.location.origin.replace(":8080", "")}:5000`;
 
 export const __fetchGroups = () => {
   return axios.get(BASE_URL);

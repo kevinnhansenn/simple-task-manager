@@ -70,7 +70,7 @@ services:
   db_group:
     image: mongo:3-xenial
     ports:
-      - 27017:27017
+      - 27018:27017
     logging:
       driver: none
     volumes:
@@ -82,7 +82,7 @@ services:
   db_task:
     image: mongo:3-xenial
     ports:
-      - 27018:27017
+      - 27019:27017
     logging:
       driver: none
     volumes:

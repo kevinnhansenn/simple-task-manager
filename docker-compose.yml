@@ -1,0 +1,102 @@
+version: "3"
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    restart: always
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    networks:
+      - network_main
+    container_name: client
+  server_group:
+    build:
+      context: ./server/group
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+    restart: always
+    depends_on:
+      - db_group
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./server/group:/app
+      - /app/node_modules
+    networks:
+      - network_group
+      - network_main
+    container_name: server_group
+  server_task:
+    build:
+      context: ./server/task
+      dockerfile: Dockerfile
+    ports:
+      - 5001:5001
+    restart: always
+    depends_on:
+      - db_task
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./server/task:/app
+      - /app/node_modules
+    networks:
+      - network_task
+      - network_main
+    container_name: server_task
+  server_email:
+    build:
+      context: ./server/email
+      dockerfile: Dockerfile
+    ports:
+      - 5002:5002
+    restart: always
+    environment:
+      - NODE_ENV=development
+      - FORCE_COLOR=1
+    volumes:
+      - ./server/email:/app
+      - /app/node_modules
+    networks:
+      - network_main
+    container_name: server_email
+  db_group:
+    image: mongo:3-xenial
+    ports:
+      - 27017:27017
+    logging:
+      driver: none
+    volumes:
+      - db_group:/data/db
+      - db_group_config:/data/configdb
+    networks:
+      - network_group
+    container_name: db_group
+  db_task:
+    image: mongo:3-xenial
+    ports:
+      - 27018:27017
+    logging:
+      driver: none
+    volumes:
+      - db_task:/data/db
+      - db_task_config:/data/configdb
+    networks:
+      - network_task
+    container_name: db_task
+networks:
+  network_main:
+  network_group:
+  network_task:
+volumes:
+  db_group:
+  db_group_config:
+  db_task:
+  db_task_config:

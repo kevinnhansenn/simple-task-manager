@@ -1,0 +1,22 @@
+# Stage 1 : Build Client
+
+FROM node:12-alpine as build
+
+WORKDIR /app
+
+COPY package.json .
+COPY yarn.lock .
+
+RUN yarn
+
+COPY . .
+
+RUN yarn build
+
+# Stage 2 : Build Server
+
+FROM nginx:1.13.12-alpine
+
+COPY --from=build /app/build /usr/share/nginx/html
+
+ENTRYPOINT ["nginx", "-g", "daemon off;"]

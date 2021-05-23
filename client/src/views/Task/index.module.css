@@ -1,0 +1,183 @@
+.title {
+    font-weight: bold;
+    color: #4e4e4e;
+    margin: 0;
+}
+
+.titleSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.actionButton {
+    animation: appear 0.7s ease;
+}
+
+.actionButton button:not(:first-child) {
+    margin-left: 10px;
+}
+
+.inputSection {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.inputSection:last-child {
+    margin-bottom: 0;
+}
+
+.inputSection > div:first-child {
+    width: 150px;
+    padding-top: 5px;
+}
+
+.inputTop {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.inputTop > div {
+    margin-right: 10px;
+}
+
+.listTitle {
+    color: #4e4e4e;
+}
+
+.description {
+    color: rgba(0, 0, 0, .45);
+}
+
+.selected {
+    background-color: #E6F7FF;
+    transition: background-color 0.5s ease, padding 0.5s ease;
+    color: #1890ff;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.selected:hover {
+    background-color: #E6F7FF;
+    color: #1890ff;
+}
+
+.listItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hovered {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hovered .description {
+    color: #1890ff;
+}
+
+.hovered .listTitle {
+    color: #1890ff;
+}
+
+.hovered .deadline {
+    color: #ff4d4f;
+}
+
+.notHovered {
+    display: flex;
+    justify-content: space-between;
+}
+
+.notHovered .deadline {
+    color: #ff4d4f;
+    opacity: 0.8;
+}
+
+.deadline {
+    text-align: right;
+}
+
+.completed {
+    color: #52c41a;
+    font-weight: bold;
+}
+
+.expired {
+    color: #ff4d4f;
+    font-weight: bold;
+}
+
+.deadlineShow {
+    opacity: 0.9;
+}
+
+.partialHide {
+    opacity: 0.2;
+}
+
+.actionSection {
+    display: flex;
+    align-items: center;
+}
+
+.hovered .checkIcon {
+    font-size: 18px;
+    color: #52c41a;
+    margin-left: 10px;
+    transition: margin 0.5s ease, font-size 0.4s ease;
+}
+
+.notHovered .checkIcon {
+    font-size: 0;
+    color: #52c41a;
+    margin-left: 0;
+    transition: margin 0.5s ease, font-size 0.4s ease;
+}
+
+.hovered .editIcon {
+    font-size: 18px;
+    color: #1890ff;
+    margin-left: 10px;
+    transition: margin 0.5s ease, font-size 0.4s ease;
+}
+
+.notHovered .editIcon {
+    font-size: 0 !important;
+    color: #1890ff;
+    margin-left: 0;
+    transition: margin 0.5s ease, font-size 0.4s ease;
+}
+
+.popover div {
+    cursor: pointer;
+    padding: 7px 10px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.popover div:hover {
+    color: #1890ff;
+}
+
+.popover div:first-child {
+    border-top: none;
+}
+
+.popover .popoverSelected {
+    background-color: #E6F7FF;
+    color: #1890ff;
+    cursor: initial;
+}
+

@@ -16,7 +16,7 @@ Architecture        : Microservices
 
 ## Live Demo
 
-For your convenient, This project has been uploaded and run on my server: [https://mbwass.com:8080](https://mbwass.com:8080)
+For your convenient, This project has been uploaded and run on my server: [http://mbwass.com:8080](http://mbwass.com:8080)
 
 ## Run Project Locally
 
